@@ -1,12 +1,6 @@
-from datetime import datetime
 import requests
 
-async def listing_query():
-  #set time parameters
-  time_now = datetime.now().strftime('%s')
-  ref_time = int(time_now) - 60
-
-  #set query for The Graph quary
+def message_query:
   query = """ 
   query RecentQuery($time: BigInt!)
   {
@@ -18,10 +12,9 @@ async def listing_query():
   }
   """
 
-  # set variable for the query - basically the time difference
-  variables = {'time': ref_time}
+  base_url =    'https://api.thegraph.com/subgraphs/name/aavegotchi/aavegotchi-core-matic'
 
-  base_url = 'https://api.thegraph.com/subgraphs/name/aavegotchi/aavegotchi-core-matic'
+  variables = 
 
   #pull data from The Graph
   response = requests.post(base_url, json={'query': query, 'variables': variables})

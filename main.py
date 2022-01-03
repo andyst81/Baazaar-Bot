@@ -34,25 +34,36 @@ class MyClient(discord.Client):
         test_channel = self.get_channel(925664602124087386) 
         
         self.counter += 1
- 
-        # call any recent Baazaar listings
-        listing_data = listing_query()
-        if listing_data:
-          for d in listing_data:
-            await listing_sort(d, listing_channel)
 
-        # call any recent Baazaar sales
-        sales_data = sales_query()
-        if sales_data:
-          for s in sales_data:
-            await sales_sort(s, sales_channel) 
-        #send message once loop completed
-        await test_channel.send('Baazaar Bot has completed ' + str(self.counter) + ' cycles')
+        try:
+          # call any recent Baazaar listings
+          listing_data = await listing_query()
+          if listing_data:
+            for d in listing_data:
+              await listing_sort(d, listing_channel)
+          sales_data = await sales_query()
+          if sales_data:
+            for s in sales_data:
+              await sales_sort(s, sales_channel) 
+          #send message once loop completed
+          await test_channel.send('Baazaar Bot has completed ' + str(self.counter) + ' cycles')
+        except:
+          pass
 
     @my_background_task.before_loop
     async def before_my_task(self):
         await self.wait_until_ready() # wait until the bot logs in
 
-keep_alive()
 client = MyClient()
+
+@client.event
+async def on_message(message):
+  if message.author == client.user:
+      return
+
+  if message.content.startswith('$gotchi_latest'):
+    
+    await message.channel.send('Hello!')
+
+keep_alive()
 client.run(os.getenv('TOKEN'))

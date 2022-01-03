@@ -1,7 +1,7 @@
 from datetime import datetime
 import requests
 
-def sales_query():
+async def sales_query():
   #set time parameters
   time_now = datetime.now().strftime('%s')
   ref_time = int(time_now) - 60

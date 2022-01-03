@@ -86,6 +86,14 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
+name = "datadispatch"
+version = "1.0.0"
+description = "Like functools.singledispatch but for values"
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "discord"
 version = "1.7.3"
 description = "A mirror package for discord.py. Please install that instead."
@@ -228,6 +236,41 @@ optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
 [[package]]
+name = "pynacl"
+version = "1.4.0"
+description = "Python binding to the Networking and Cryptography (NaCl) library"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+
+[package.dependencies]
+cffi = ">=1.4.1"
+six = "*"
+
+[package.extras]
+docs = ["sphinx (>=1.6.5)", "sphinx-rtd-theme"]
+tests = ["pytest (>=3.2.1,!=3.3.0)", "hypothesis (>=3.27.0)"]
+
+[[package]]
+name = "six"
+version = "1.16.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
+optional = false
+python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+
+[[package]]
+name = "tasks"
+version = "2.8.0"
+description = "A simple personal task queue to track todo items"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+datadispatch = "*"
+
+[[package]]
 name = "typing-extensions"
 version = "4.0.1"
 description = "Backported and Experimental Type Hints for Python 3.6+"
@@ -298,7 +341,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "1b06a30600abdb1eab551a4c3927092348d69b431086e1ec0fbabf879db1ac4d"
+content-hash = "468cc3fd6bb46a11a560bd896e5adef5357abb021d2c730f934c4fa26ca090fb"
 
 [metadata.files]
 aiohttp = [
@@ -460,6 +503,10 @@ click = [
 colorama = [
     {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
     {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
+]
+datadispatch = [
+    {file = "datadispatch-1.0.0-py3-none-any.whl", hash = "sha256:527ad534881d7f6144a8ff643c260a3d2ae0d50e8ee24ec4b0fdae72d6c7beab"},
+    {file = "datadispatch-1.0.0.tar.gz", hash = "sha256:3c0456934e99f21137332deebbda05713dc07fcb142dfc01ef83d6b17aeaf08e"},
 ]
 discord = [
     {file = "discord-1.7.3-py3-none-any.whl", hash = "sha256:248d728356e149c818a81b94659047a19305ea1623d4810bbb342f6b7df55f36"},
@@ -729,6 +776,34 @@ multidict = [
 pycparser = [
     {file = "pycparser-2.21-py2.py3-none-any.whl", hash = "sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9"},
     {file = "pycparser-2.21.tar.gz", hash = "sha256:e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"},
+]
+pynacl = [
+    {file = "PyNaCl-1.4.0-cp27-cp27m-macosx_10_10_x86_64.whl", hash = "sha256:ea6841bc3a76fa4942ce00f3bda7d436fda21e2d91602b9e21b7ca9ecab8f3ff"},
+    {file = "PyNaCl-1.4.0-cp27-cp27m-manylinux1_x86_64.whl", hash = "sha256:d452a6746f0a7e11121e64625109bc4468fc3100452817001dbe018bb8b08514"},
+    {file = "PyNaCl-1.4.0-cp27-cp27m-win32.whl", hash = "sha256:2fe0fc5a2480361dcaf4e6e7cea00e078fcda07ba45f811b167e3f99e8cff574"},
+    {file = "PyNaCl-1.4.0-cp27-cp27m-win_amd64.whl", hash = "sha256:f8851ab9041756003119368c1e6cd0b9c631f46d686b3904b18c0139f4419f80"},
+    {file = "PyNaCl-1.4.0-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:7757ae33dae81c300487591c68790dfb5145c7d03324000433d9a2c141f82af7"},
+    {file = "PyNaCl-1.4.0-cp35-abi3-macosx_10_10_x86_64.whl", hash = "sha256:757250ddb3bff1eecd7e41e65f7f833a8405fede0194319f87899690624f2122"},
+    {file = "PyNaCl-1.4.0-cp35-abi3-manylinux1_x86_64.whl", hash = "sha256:30f9b96db44e09b3304f9ea95079b1b7316b2b4f3744fe3aaecccd95d547063d"},
+    {file = "PyNaCl-1.4.0-cp35-abi3-win32.whl", hash = "sha256:4e10569f8cbed81cb7526ae137049759d2a8d57726d52c1a000a3ce366779634"},
+    {file = "PyNaCl-1.4.0-cp35-abi3-win_amd64.whl", hash = "sha256:c914f78da4953b33d4685e3cdc7ce63401247a21425c16a39760e282075ac4a6"},
+    {file = "PyNaCl-1.4.0-cp35-cp35m-win32.whl", hash = "sha256:06cbb4d9b2c4bd3c8dc0d267416aaed79906e7b33f114ddbf0911969794b1cc4"},
+    {file = "PyNaCl-1.4.0-cp35-cp35m-win_amd64.whl", hash = "sha256:511d269ee845037b95c9781aa702f90ccc36036f95d0f31373a6a79bd8242e25"},
+    {file = "PyNaCl-1.4.0-cp36-cp36m-win32.whl", hash = "sha256:11335f09060af52c97137d4ac54285bcb7df0cef29014a1a4efe64ac065434c4"},
+    {file = "PyNaCl-1.4.0-cp36-cp36m-win_amd64.whl", hash = "sha256:cd401ccbc2a249a47a3a1724c2918fcd04be1f7b54eb2a5a71ff915db0ac51c6"},
+    {file = "PyNaCl-1.4.0-cp37-cp37m-win32.whl", hash = "sha256:8122ba5f2a2169ca5da936b2e5a511740ffb73979381b4229d9188f6dcb22f1f"},
+    {file = "PyNaCl-1.4.0-cp37-cp37m-win_amd64.whl", hash = "sha256:537a7ccbea22905a0ab36ea58577b39d1fa9b1884869d173b5cf111f006f689f"},
+    {file = "PyNaCl-1.4.0-cp38-cp38-win32.whl", hash = "sha256:9c4a7ea4fb81536c1b1f5cc44d54a296f96ae78c1ebd2311bd0b60be45a48d96"},
+    {file = "PyNaCl-1.4.0-cp38-cp38-win_amd64.whl", hash = "sha256:7c6092102219f59ff29788860ccb021e80fffd953920c4a8653889c029b2d420"},
+    {file = "PyNaCl-1.4.0.tar.gz", hash = "sha256:54e9a2c849c742006516ad56a88f5c74bf2ce92c9f67435187c3c5953b346505"},
+]
+six = [
+    {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+    {file = "six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
+]
+tasks = [
+    {file = "tasks-2.8.0-py3-none-any.whl", hash = "sha256:94b6a20b2790717102e194d8ae2da5a84ee0cf509589f37d4192328237a9053a"},
+    {file = "tasks-2.8.0.tar.gz", hash = "sha256:0f145014df82f27e965ed2453225fc6dca6430c4fb7492a819125de53f8657d0"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.0.1-py3-none-any.whl", hash = "sha256:7f001e5ac290a0c0401508864c7ec868be4e701886d5b573a9528ed3973d9d3b"},
